@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { getAllStudents } from "./client";
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from "@ant-design/icons";
-import { Breadcrumb, Layout, Menu, Table } from "antd";
+import React, {useEffect, useState} from "react";
+import {getAllStudents} from "./client";
+import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined, LoadingOutlined } from "@ant-design/icons";
+import {Breadcrumb, Empty, Layout, Menu, Spin, Table} from "antd";
 import "./App.css";
 
-const { Header, Content, Footer, Sider } = Layout;
+const {Header, Content, Footer, Sider} = Layout;
 const {SubMenu} = Menu;
 
 const columns = [
@@ -35,26 +29,44 @@ const columns = [
         key: 'gender',
     },
 ];
+const antIcon = <LoadingOutlined style={{fontSize: 24}} spin/>;
 function App() {
     const [students, setStudents] = useState([]);
     const [collapsed, setCollapsed] = useState(false);
+    const [fetching, setFetching] = useState(true);
     const fetchStudents = () =>
         getAllStudents()
-            .then((res) => res.json())
-            .then((data) => setStudents(data));
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setStudents(data);
+            }).catch(err => {
+            console.log(err.response)
+            err.response.json().then(res => {
+                console.log(res);
+            });
+        }).finally(() => setFetching(false))
 
     useEffect(() => {
         console.log("component is mounted");
         fetchStudents();
     }, []);
 
-    const renderStudents = () =>{
-        if (students.length<=0){
-            return "no data available";
+    const renderStudents = () => {
+        if (fetching) {
+            return <Spin indicator={antIcon}/>
+        }
+        if (students.length <= 0) {
+            return <Empty/>
         }
         return <Table
             dataSource={students}
-            columns={columns} />;
+            columns={columns}
+            bordered
+            title={() => 'Students'}
+            pagination={{pageSize: 10}}
+            scroll={{y: 500}}
+            rowKey={student => student.id}/>
     }
 
     return <Layout style={{minHeight: '100vh'}}>

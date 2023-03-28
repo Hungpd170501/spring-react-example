@@ -1,0 +1,7 @@
+mvn clean install jib:dockerBuild -Dimage=spring-react-example:v1 -Dusername= -Dpassword=
+
+docker login
+mvn jib:dockerBuild -Dimage=spring-react-example:v1
+
+docker login
+mvn jib:build -Dimage=hungpd170501/spring-react-example:v1

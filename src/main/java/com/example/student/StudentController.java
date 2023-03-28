@@ -19,98 +19,27 @@ public class StudentController {
     public List<Student> getAllStudents() {
         List<Student> students = Arrays.asList(
                 Student.builder()
+                        .id(1L)
                         .email(faker.internet().emailAddress())
                         .gender(Gender.MALE)
                         .name(faker.name().name())
                         .build(),
                 Student.builder()
+                        .id(2L)
                         .email(faker.internet().emailAddress())
                         .gender(Gender.MALE)
                         .name(faker.name().name())
                         .build(),
                 Student.builder()
+                        .id(3L)
                         .email(faker.internet().emailAddress())
                         .gender(Gender.MALE)
                         .name(faker.name().name())
                         .build(),
                 Student.builder()
+                        .id(4L)
                         .email(faker.internet().emailAddress())
                         .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.MALE)
-                        .name(faker.name().name())
-                        .build(),
-                Student.builder()
-                        .email(faker.internet().emailAddress())
-                        .gender(Gender.FEMALE)
                         .name(faker.name().name())
                         .build()
         );
