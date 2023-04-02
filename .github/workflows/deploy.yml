@@ -28,6 +28,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      actions: read
     services:
       postgres:
         image: postgres:13.1
