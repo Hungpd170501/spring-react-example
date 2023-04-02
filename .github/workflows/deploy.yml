@@ -6,6 +6,11 @@ on:
 
   workflow_dispatch:
 
+  permissions:
+    contents: 'read'
+    id-token: 'write'
+    issues: 'write'
+
 env:
   # Postgres
   POSTGRESQL_VERSION: 13.1
