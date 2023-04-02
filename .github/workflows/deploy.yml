@@ -6,11 +6,6 @@ on:
 
   workflow_dispatch:
 
-  permissions:
-    contents: 'read'
-    id-token: 'write'
-    issues: 'write'
-
 env:
   # Postgres
   POSTGRESQL_VERSION: 13.1
@@ -30,6 +25,10 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read|write
+      packages: write
+      actions: read
     services:
       postgres:
         image: postgres:13.1
@@ -76,7 +75,7 @@ jobs:
         with:
           status: ${{ job.status }}
           fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
-          text: ':white_check_mark: pushed hungpd170501/spring-react-example:${{steps.build-number.outputs.BUILD_NUMBER}} to docker hub... https://hub.docker.com/repository/docker/amigoscode/springboot-react-fullstack'
+          text: ':white_check_mark: pushed hungpd170501/spring-react-example:${{steps.build-number.outputs.BUILD_NUMBER}} to docker hub... https://hub.docker.com/repository/docker/hungpd170501/spring-react-example'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       - name: Update and commit app version in docker-compose.yaml
