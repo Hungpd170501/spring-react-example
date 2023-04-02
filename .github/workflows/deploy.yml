@@ -6,11 +6,6 @@ on:
 
   workflow_dispatch:
 
-permissions:
-  contents: 'read'
-  id-token: 'write'
-  issues: 'write'
-
 env:
   # Postgres
   POSTGRESQL_VERSION: 13.1
@@ -30,6 +25,9 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     services:
       postgres:
         image: postgres:13.1
