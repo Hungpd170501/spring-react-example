@@ -2,8 +2,6 @@ package com.example.student;
 
 import com.example.exception.BadRequestException;
 import com.example.exception.StudentNotFoundException;
-import org.junit.jupiter.api.Test;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +20,8 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTest {
 
-    @Mock private StudentRepository studentRepository;
+    @Mock
+    private StudentRepository studentRepository;
     private StudentService underTest;
 
     @BeforeEach
