@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   backend:
-    image: "hungpd170501/spring-react-example:7.4.2023.17.50.58"
+    image: "hungpd170501/spring-react-example:19.4.2023.15.32.45"
     ports:
       - "80:8080"
     restart: "always"
